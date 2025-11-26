@@ -1,0 +1,7 @@
+site_name: cncf-fallback
+site_description: Documentation for cncf-fallback
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+plugins:
+  - techdocs-core

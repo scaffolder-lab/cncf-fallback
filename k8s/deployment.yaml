@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cncf-fallback
+  namespace: demo-apps
+  labels:
+    app: cncf-fallback
+    backstage.io/kubernetes-id: cncf-fallback
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cncf-fallback
+  template:
+    metadata:
+      labels:
+        app: cncf-fallback
+        backstage.io/kubernetes-id: cncf-fallback
+    spec:
+      containers:
+        - name: cncf-fallback
+          image: quay.io/angelsanchezdev/cncf-fallback:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "10m"
+            limits:
+              memory: "64Mi"
+              cpu: "100m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 5

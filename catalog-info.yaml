@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cncf-fallback
+  description: Landing page for Cloud Native Latam Summit
+  annotations:
+    github.com/project-slug: scaffolder-lab/cncf-fallback
+    argocd/app-name: cncf-fallback
+    argocd/app-namespace: argocd
+    argocd/instance-name: main
+    backstage.io/kubernetes-id: cncf-fallback
+    backstage.io/kubernetes-namespace: demo-apps
+    backstage.io/kubernetes-label-selector: app=cncf-fallback
+    backstage.io/techdocs-ref: dir:.
+    quay.io/repository-slug: angelsanchezdev/cncf-fallback
+  links:
+    - url: https://github.com/scaffolder-lab/cncf-fallback
+      title: GitHub Repository
+      icon: github
+    - url: https://github.com/scaffolder-lab/cncf-fallback/actions
+      title: GitHub Actions
+      icon: dashboard
+    - url: https://quay.io/repository/angelsanchezdev/cncf-fallback
+      title: Container Image
+      icon: docker
+    - url: http://localhost:8080/applications/argocd/cncf-fallback
+      title: ArgoCD App
+      icon: cloud
+  tags:
+    - landing
+    - kubernetes
+    - event
+    - gitops
+spec:
+  type: website
+  lifecycle: production
+  owner: guests
+  system: landing-system
