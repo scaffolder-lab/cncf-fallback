@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: cncf-fallback
-          image: quay.io/angelsanchezdev/cncf-fallback:latest
+          image: quay.io/angelsanchezdev/cncf-fallback:10bf55711ffe2b6951eab42d32ec7eab1843dc83
           imagePullPolicy: Always
           ports:
             - containerPort: 80
